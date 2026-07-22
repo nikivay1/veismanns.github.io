@@ -43,10 +43,9 @@ export interface SidebarContent {
 }
 
 export interface AboutContent {
-  eyebrow: string;
-  heading: readonly [string, string];
-  lead: string;
-  description: string;
+  index: string;
+  title: string;
+  summary: readonly string[];
   impactAriaLabel: string;
   impact: readonly Impact[];
   facts: readonly { label: string; lines: readonly string[] }[];
@@ -64,18 +63,16 @@ export interface Experience {
 }
 
 export interface ExperienceContent {
-  eyebrow: string;
-  heading: readonly [string, string];
+  index: string;
+  title: string;
   technologiesLabel: string;
   jobs: readonly Experience[];
 }
 
 export interface ToolkitContent {
-  eyebrow: string;
-  heading: readonly [string, string];
-  groups: readonly (readonly [title: string, items: string])[];
-  principleLabel: string;
-  principle: string;
+  index: string;
+  title: string;
+  groups: readonly { title: string; skills: readonly string[] }[];
 }
 
 export interface ContactLink {
@@ -86,7 +83,8 @@ export interface ContactLink {
 }
 
 export interface ContactContent {
-  eyebrow: string;
+  index: string;
+  title: string;
   heading: readonly [string, string, string];
   links: readonly ContactLink[];
 }
@@ -158,10 +156,13 @@ export const content: Record<Locale, PortfolioContent> = {
       languageLabel: 'Language',
     },
     about: {
-      eyebrow: '01 / About',
-      heading: ['Architecture', 'with empathy.'],
-      lead: 'I build fast, reliable interfaces for products where performance is a feature—not a polish pass.',
-      description: 'I modernize legacy codebases, shape scalable frontend architecture, and work closely with backend and product teams to turn complex constraints into software that feels simple and safe to change.',
+      index: '01',
+      title: 'About',
+      summary: [
+        'Senior Frontend Developer with 6+ years of experience building high-load web and cross-platform applications.',
+        'Contributed to international products, including a crypto wallet with Web3 integrations and enterprise-grade systems, with a focus on frontend architecture, performance, reliability, and maintainability.',
+        'Skilled in modernizing legacy codebases, leading TypeScript migrations, and designing scalable frontend solutions in close collaboration with backend and product teams.',
+      ],
       impactAriaLabel: 'Selected impact',
       impact: [['½', 'load time'], ['4×', 'onboarding speed'], ['30%', 'reliability gain']],
       facts: [
@@ -171,8 +172,8 @@ export const content: Record<Locale, PortfolioContent> = {
       ],
     },
     experience: {
-      eyebrow: '02 / Experience',
-      heading: ['Complex systems.', 'Clear outcomes.'],
+      index: '02',
+      title: 'Experience',
       technologiesLabel: 'Technologies',
       jobs: [
         {
@@ -206,12 +207,17 @@ export const content: Record<Locale, PortfolioContent> = {
       ],
     },
     toolkit: {
-      eyebrow: '03 / Skills', heading: ['Broad stack.', 'Frontend depth.'],
-      groups: [['Core', 'TypeScript, JavaScript, HTML5, CSS3'], ['Frontend', 'React, Vue, Redux, Vuex, Sass, Less'], ['Product surfaces', 'Web, Electron, Cordova, cross-platform mobile'], ['Backend & Web3', 'Node.js, Python, REST API, Web3.js, Kafka'], ['Delivery', 'Playwright, Webpack, Babel, Docker, Git, Jira']],
-      principleLabel: 'Working principle', principle: 'Make the system easier to understand after every change.',
+      index: '03', title: 'Skills',
+      groups: [
+        { title: 'Core', skills: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'] },
+        { title: 'Frontend', skills: ['React', 'Vue', 'Redux', 'Vuex', 'Sass', 'Less'] },
+        { title: 'Product surfaces', skills: ['Web', 'Electron', 'Cordova', 'Cross-platform mobile'] },
+        { title: 'Backend & Web3', skills: ['Node.js', 'Python', 'REST API', 'Web3.js', 'Kafka'] },
+        { title: 'Delivery', skills: ['Playwright', 'Webpack', 'Babel', 'Docker', 'Git', 'Jira'] },
+      ],
     },
     contact: {
-      eyebrow: '04 / Contact', heading: ['Let’s make', 'the complex', 'clear.'],
+      index: '04', title: 'Contact', heading: ['Let’s make', 'the complex', 'clear.'],
       links: [{ label: 'Email', ...shared.contacts.email }, { label: 'Telegram', ...shared.contacts.telegram, external: true }, { label: 'LinkedIn', ...shared.contacts.linkedin, external: true }],
     },
     footer: { copyright: 'Nikita Veisman', note: 'Built for speed · No client-side framework', backToTop: 'Back to top ↑' },
@@ -233,14 +239,17 @@ export const content: Record<Locale, PortfolioContent> = {
       languageLabel: 'Язык',
     },
     about: {
-      eyebrow: '01 / Обо мне', heading: ['Архитектура', 'с эмпатией.'],
-      lead: 'Создаю быстрые и надёжные интерфейсы для продуктов, где производительность — часть функциональности, а не финальная полировка.',
-      description: 'Модернизирую legacy-код, проектирую масштабируемую frontend-архитектуру и работаю рядом с backend- и product-командами, превращая сложные ограничения в понятные и безопасные для развития системы.',
+      index: '01', title: 'Обо мне',
+      summary: [
+        'Senior Frontend Developer с более чем 6-летним опытом разработки высоконагруженных веб- и кроссплатформенных приложений.',
+        'Участвовал в создании международных продуктов, включая криптовалютный кошелёк с интеграциями Web3 и системы корпоративного уровня, уделяя особое внимание frontend-архитектуре, производительности, надёжности и сопровождаемости.',
+        'Имею опыт модернизации legacy-кода, руководства миграциями на TypeScript и проектирования масштабируемых frontend-решений в тесном сотрудничестве с backend- и product-командами.',
+      ],
       impactAriaLabel: 'Ключевые результаты', impact: [['½', 'время загрузки'], ['4×', 'быстрее onboarding'], ['30%', 'рост надёжности']],
       facts: [{ label: 'Языки', lines: ['Русский · Родной', 'Английский · B1'] }, { label: 'Образование', lines: ['Информационные технологии и высшая математика', 'Ивановский государственный университет'] }, { label: 'Локация', lines: ['Валенсия, Испания', 'Также доступен из Тбилиси, Грузия'] }],
     },
     experience: {
-      eyebrow: '02 / Опыт', heading: ['Сложные системы.', 'Понятный результат.'], technologiesLabel: 'Технологии',
+      index: '02', title: 'Опыт', technologiesLabel: 'Технологии',
       jobs: [
         { period: '2024 — 2026', company: 'Atomic Wallet', location: 'Эстония · Международная команда', role: 'Frontend / Mobile Developer', summary: 'Frontend-архитектура высоконагруженного криптовалютного кошелька с фокусом на производительность, безопасность, стабильность и developer experience.', impact: [['40 → 20с', 'загрузка приложения'], ['4×', 'быстрее onboarding'], ['20%', 'быстрее обновление токенов']], work: ['Интегрировал серверное управление сессиями при отказе от JWT-авторизации.', 'Переработал алгоритмы балансов и транзакций, сократив расхождения данных.', 'Перестроил процессы разработки вокруг выделенной конфигурации Webpack и Docker.'], stack: ['Vue', 'Web3.js', 'Node.js', 'Webpack', 'Docker'] },
         { period: '2022 — 2024', company: 'OPUS', location: 'Япония · Международная команда', role: 'Frontend / Mobile Developer', summary: 'Кроссплатформенная продуктовая разработка в крупной компании полного цикла.', impact: [['+30%', 'надёжность уведомлений'], ['−30%', 'лишние перерисовки']], work: ['Внедрил предпродакшн-проверку критических пользовательских сценариев.', 'Перепроектировал доставку desktop-уведомлений, сократив число пропущенных событий.', 'Провёл системный рефакторинг legacy-кода: меньше компонентов, дублирования и лишнего рендеринга.'], stack: ['Vue', 'Electron', 'Cordova', 'TypeScript', 'Playwright'] },
@@ -249,12 +258,17 @@ export const content: Record<Locale, PortfolioContent> = {
       ],
     },
     toolkit: {
-      eyebrow: '03 / Навыки', heading: ['Широкий стек.', 'Глубина во frontend.'],
-      groups: [['Основа', 'TypeScript, JavaScript, HTML5, CSS3'], ['Frontend', 'React, Vue, Redux, Vuex, Sass, Less'], ['Платформы', 'Web, Electron, Cordova, кроссплатформенная mobile-разработка'], ['Backend и Web3', 'Node.js, Python, REST API, Web3.js, Kafka'], ['Поставка', 'Playwright, Webpack, Babel, Docker, Git, Jira']],
-      principleLabel: 'Принцип работы', principle: 'После каждого изменения систему должно становиться проще понимать.',
+      index: '03', title: 'Навыки',
+      groups: [
+        { title: 'Основа', skills: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'] },
+        { title: 'Frontend', skills: ['React', 'Vue', 'Redux', 'Vuex', 'Sass', 'Less'] },
+        { title: 'Платформы', skills: ['Web', 'Electron', 'Cordova', 'Кроссплатформенная mobile-разработка'] },
+        { title: 'Backend и Web3', skills: ['Node.js', 'Python', 'REST API', 'Web3.js', 'Kafka'] },
+        { title: 'Поставка', skills: ['Playwright', 'Webpack', 'Babel', 'Docker', 'Git', 'Jira'] },
+      ],
     },
     contact: {
-      eyebrow: '04 / Контакты', heading: ['Давайте сделаем', 'сложное', 'понятным.'],
+      index: '04', title: 'Контакты', heading: ['Давайте сделаем', 'сложное', 'понятным.'],
       links: [{ label: 'Почта', ...shared.contacts.email }, { label: 'Telegram', ...shared.contacts.telegram, external: true }, { label: 'LinkedIn', ...shared.contacts.linkedin, external: true }],
     },
     footer: { copyright: 'Никита Вейсман', note: 'Создан для скорости · Без клиентского фреймворка', backToTop: 'Наверх ↑' },
@@ -276,14 +290,17 @@ export const content: Record<Locale, PortfolioContent> = {
       languageLabel: 'Idioma',
     },
     about: {
-      eyebrow: '01 / Perfil', heading: ['Arquitectura', 'con empatía.'],
-      lead: 'Creo interfaces rápidas y fiables para productos donde el rendimiento es una función, no un detalle final.',
-      description: 'Modernizo código legacy, diseño arquitecturas frontend escalables y colaboro con equipos de backend y producto para convertir restricciones complejas en software sencillo de usar y seguro de evolucionar.',
+      index: '01', title: 'Perfil',
+      summary: [
+        'Senior Frontend Developer con más de 6 años de experiencia en el desarrollo de aplicaciones web de alta carga y aplicaciones multiplataforma.',
+        'Participé en productos internacionales, entre ellos una cartera de criptomonedas con integraciones Web3 y sistemas de nivel empresarial, con especial atención a la arquitectura frontend, el rendimiento, la fiabilidad y la mantenibilidad.',
+        'Experiencia en la modernización de código legacy, el liderazgo de migraciones a TypeScript y el diseño de soluciones frontend escalables en estrecha colaboración con equipos de backend y producto.',
+      ],
       impactAriaLabel: 'Resultados destacados', impact: [['½', 'tiempo de carga'], ['4×', 'onboarding más rápido'], ['30%', 'más fiabilidad']],
       facts: [{ label: 'Idiomas', lines: ['Ruso · Nativo', 'Inglés · B1'] }, { label: 'Formación', lines: ['Tecnologías de la Información y Matemáticas Superiores', 'Universidad Estatal de Ivánovo'] }, { label: 'Ubicación', lines: ['Valencia, España', 'También disponible desde Tiflis, Georgia'] }],
     },
     experience: {
-      eyebrow: '02 / Experiencia', heading: ['Sistemas complejos.', 'Resultados claros.'], technologiesLabel: 'Tecnologías',
+      index: '02', title: 'Experiencia', technologiesLabel: 'Tecnologías',
       jobs: [
         { period: '2024 — 2026', company: 'Atomic Wallet', location: 'Estonia · Internacional', role: 'Frontend / Mobile Developer', summary: 'Arquitectura frontend para una cartera de criptomonedas de alta carga, centrada en rendimiento, seguridad, estabilidad y experiencia de desarrollo.', impact: [['40 → 20s', 'carga móvil'], ['4×', 'onboarding más rápido'], ['20%', 'actualización de tokens']], work: ['Integré la gestión de sesiones del servidor durante la migración desde la autorización basada en JWT.', 'Reestructuré los algoritmos de saldos y transacciones para reducir inconsistencias de datos.', 'Renové los flujos de desarrollo con una configuración dedicada de Webpack y Docker.'], stack: ['Vue', 'Web3.js', 'Node.js', 'Webpack', 'Docker'] },
         { period: '2022 — 2024', company: 'OPUS', location: 'Japón · Internacional', role: 'Frontend / Mobile Developer', summary: 'Desarrollo de producto multiplataforma en una gran empresa de software de ciclo completo.', impact: [['+30%', 'fiabilidad de avisos'], ['−30%', 'renders innecesarios']], work: ['Establecí la validación previa a producción de los recorridos críticos del usuario.', 'Rediseñé la entrega de notificaciones de escritorio para reducir eventos perdidos.', 'Lideré una refactorización sistemática del código legacy: componentes más pequeños, menos duplicación y renderizado más eficiente.'], stack: ['Vue', 'Electron', 'Cordova', 'TypeScript', 'Playwright'] },
@@ -292,12 +309,17 @@ export const content: Record<Locale, PortfolioContent> = {
       ],
     },
     toolkit: {
-      eyebrow: '03 / Habilidades', heading: ['Stack amplio.', 'Profundidad frontend.'],
-      groups: [['Base', 'TypeScript, JavaScript, HTML5, CSS3'], ['Frontend', 'React, Vue, Redux, Vuex, Sass, Less'], ['Plataformas', 'Web, Electron, Cordova, mobile multiplataforma'], ['Backend y Web3', 'Node.js, Python, REST API, Web3.js, Kafka'], ['Entrega', 'Playwright, Webpack, Babel, Docker, Git, Jira']],
-      principleLabel: 'Principio de trabajo', principle: 'Cada cambio debe hacer que el sistema sea más fácil de entender.',
+      index: '03', title: 'Habilidades',
+      groups: [
+        { title: 'Base', skills: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'] },
+        { title: 'Frontend', skills: ['React', 'Vue', 'Redux', 'Vuex', 'Sass', 'Less'] },
+        { title: 'Plataformas', skills: ['Web', 'Electron', 'Cordova', 'Mobile multiplataforma'] },
+        { title: 'Backend y Web3', skills: ['Node.js', 'Python', 'REST API', 'Web3.js', 'Kafka'] },
+        { title: 'Entrega', skills: ['Playwright', 'Webpack', 'Babel', 'Docker', 'Git', 'Jira'] },
+      ],
     },
     contact: {
-      eyebrow: '04 / Contacto', heading: ['Hagamos', 'lo complejo', 'claro.'],
+      index: '04', title: 'Contacto', heading: ['Hagamos', 'lo complejo', 'claro.'],
       links: [{ label: 'Email', ...shared.contacts.email }, { label: 'Telegram', ...shared.contacts.telegram, external: true }, { label: 'LinkedIn', ...shared.contacts.linkedin, external: true }],
     },
     footer: { copyright: 'Nikita Veisman', note: 'Creado para la velocidad · Sin framework en el cliente', backToTop: 'Volver arriba ↑' },

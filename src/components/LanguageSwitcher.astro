@@ -10,9 +10,7 @@ interface Props {
 const { label, currentLocale, links } = Astro.props;
 ---
 
-<div class="flex items-center justify-between border-b border-[#4b4b47] py-3.5">
-  <span class="font-mono text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#aaa9a2]">{label}</span>
-  <div class="flex items-center gap-1" aria-label={label}>
+<div class="flex items-center gap-1" aria-label={label}>
     {links.map((link) => (
       <a
         class:list={[
@@ -28,5 +26,4 @@ const { label, currentLocale, links } = Astro.props;
         {link.label}
       </a>
     ))}
-  </div>
 </div>

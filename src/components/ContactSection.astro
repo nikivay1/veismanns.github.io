@@ -1,5 +1,6 @@
 ---
 import type { ContactContent } from '../i18n/content';
+import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   content: ContactContent;
@@ -9,10 +10,10 @@ const { content } = Astro.props;
 ---
 
 <section class="bg-signal p-[clamp(2rem,6vw,5rem)]" id="contact" aria-labelledby="contact-title">
-  <p class="eyebrow">{content.eyebrow}</p>
-  <h2 class="my-[clamp(3rem,7vw,6rem)] text-[clamp(3.5rem,8vw,8rem)] leading-[0.84] font-bold tracking-[-0.075em]" id="contact-title">
+  <SectionHeader index={content.index} title={content.title} id="contact-title" />
+  <p class="my-[clamp(3rem,7vw,6rem)] text-[clamp(3.5rem,8vw,8rem)] leading-[0.84] font-bold tracking-[-0.075em]">
     {content.heading[0]}<br />{content.heading[1]} <em class="font-serif font-normal">{content.heading[2]}</em>
-  </h2>
+  </p>
 
   <div class="border-t border-ink">
     {content.links.map((link) => <a class="contact-link group" href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noreferrer' : undefined}>

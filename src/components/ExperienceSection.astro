@@ -1,6 +1,7 @@
 ---
 import ExperienceCard from './ExperienceCard.astro';
 import type { ExperienceContent } from '../i18n/content';
+import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   content: ExperienceContent;
@@ -10,10 +11,7 @@ const { content } = Astro.props;
 ---
 
 <section class="section-shell" id="work" aria-labelledby="work-title">
-  <header class="section-heading">
-    <p class="eyebrow">{content.eyebrow}</p>
-    <h2 class="section-title" id="work-title">{content.heading[0]}<br />{content.heading[1]}</h2>
-  </header>
+  <SectionHeader index={content.index} title={content.title} id="work-title" />
 
   <div class="border-t border-ink">
     {content.jobs.map((job, index) => <ExperienceCard job={job} index={index} technologiesLabel={content.technologiesLabel} />)}

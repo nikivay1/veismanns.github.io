@@ -1,5 +1,6 @@
 ---
 import type { AboutContent } from '../i18n/content';
+import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   content: AboutContent;
@@ -9,18 +10,12 @@ const { content } = Astro.props;
 ---
 
 <section class="section-shell min-h-svh" id="about" aria-labelledby="about-title">
-  <header class="section-heading">
-    <p class="eyebrow">{content.eyebrow}</p>
-    <h2 class="section-title" id="about-title">{content.heading[0]}<br />{content.heading[1]}</h2>
-  </header>
+  <SectionHeader index={content.index} title={content.title} id="about-title" />
 
   <div>
-    <p class="max-w-3xl text-[clamp(1.35rem,2.5vw,2.4rem)] leading-[1.2] tracking-[-0.035em]">
-      {content.lead}
-    </p>
-    <p class="mt-5 max-w-3xl text-[clamp(1.1rem,1.6vw,1.5rem)] leading-[1.4] text-muted">
-      {content.description}
-    </p>
+    <div class="max-w-3xl space-y-5 text-[clamp(1.1rem,1.65vw,1.5rem)] leading-[1.5]">
+      {content.summary.map((paragraph, index) => <p class:list={[index > 0 && 'text-muted']}>{paragraph}</p>)}
+    </div>
 
     <div class="mt-[clamp(3rem,7vw,6rem)] grid grid-cols-3 border-y border-ink py-5 max-sm:grid-cols-1 max-sm:gap-5" aria-label={content.impactAriaLabel}>
       {content.impact.map(([value, label]) => <div><strong class="block text-[clamp(2.5rem,5vw,5rem)] leading-none tracking-[-0.07em] text-signal">{value}</strong><span class="impact-label">{label}</span></div>)}
