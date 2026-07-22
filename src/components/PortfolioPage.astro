@@ -7,6 +7,7 @@ import ToolkitSection from './ToolkitSection.astro';
 import AboutSection from './AboutSection.astro';
 import ContactSection from './ContactSection.astro';
 import SiteFooter from './SiteFooter.astro';
+import MobileCvButton from './MobileCvButton.astro';
 import { getContent, locales, type Locale, type LocaleLink } from '../i18n';
 
 interface Props {
@@ -25,7 +26,7 @@ const localeLinks: readonly LocaleLink[] = locales.map((code) => ({
 ---
 
 <BaseLayout lang={locale} meta={page.meta} alternateLinks={localeLinks}>
-  <div class="lg:flex lg:items-start">
+  <div class="pb-[calc(5.75rem+env(safe-area-inset-bottom))] min-[641px]:pb-0 lg:flex lg:items-start">
     <Sidebar content={page.sidebar} locale={locale} {localeLinks} />
     <div class="min-w-0 lg:w-[60vw]">
       <main id="main">
@@ -37,4 +38,5 @@ const localeLinks: readonly LocaleLink[] = locales.map((code) => ({
       <SiteFooter content={page.footer} />
     </div>
   </div>
+  <MobileCvButton label={page.sidebar.downloadLabel} />
 </BaseLayout>

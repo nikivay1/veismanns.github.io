@@ -15,28 +15,28 @@ const cvUrl = withBase('nikita-veisman-cv.pdf');
 ---
 
 <aside
-  class="flex min-h-svh flex-col bg-ink px-[clamp(1.25rem,3.5vw,4rem)] py-[clamp(1.5rem,4vw,4rem)] text-paper lg:sticky lg:top-0 lg:h-svh lg:w-[40vw] lg:self-start lg:overflow-y-auto"
+  class="flex min-h-svh flex-col bg-ink px-[clamp(1.25rem,3.5vw,4rem)] py-[clamp(1.5rem,4vw,4rem)] text-paper max-[641px]:py-5 lg:sticky lg:top-0 lg:h-svh lg:w-[40vw] lg:self-start lg:overflow-y-auto"
   id="top"
   aria-label={content.ariaLabel}
 >
-  <div class="flex items-center justify-between border-b border-[#4b4b47] pb-5">
+  <div class="flex items-center justify-between border-b border-[#4b4b47] pb-5 max-[641px]:pb-4">
     <a class="text-xl font-black tracking-[-0.06em] no-underline" href="#top" aria-label={content.backToTopLabel}>
       NV<span class="text-signal">°</span>
     </a>
-    <a class="nav-link text-paper" href={cvUrl} download>
+    <a class="nav-link text-paper max-[641px]:hidden" href={cvUrl} download>
       {content.downloadLabel} <span aria-hidden="true">↓</span>
     </a>
   </div>
 
-  <header class="py-[clamp(3.5rem,8vh,7rem)]">
+  <header class="py-[clamp(3.5rem,8vh,7rem)] max-[641px]:py-10">
     <div class="mb-5 flex items-center gap-2.5 font-mono text-[0.66rem] font-bold uppercase tracking-[0.1em] text-[#bbb9b1]">
       <span class="size-2.5 rounded-full bg-signal shadow-[0_0_0_.25rem_#ff4f2e22]" aria-hidden="true"></span>
       {content.availability}
     </div>
-    <h1 class="m-0 text-[clamp(4rem,7vw,8rem)] leading-[0.78] font-black tracking-[-0.085em] lg:text-[clamp(4rem,6.2vw,7rem)]">
+    <h1 class="m-0 text-[clamp(4rem,7vw,8rem)] leading-[0.78] font-black tracking-[-0.085em] max-[641px]:text-[clamp(3.5rem,17vw,4.5rem)] lg:text-[clamp(4rem,6.2vw,7rem)]">
       {content.name[0]}<br />{content.name[1]}
     </h1>
-    <p class="mt-8 mb-0 text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[0.95] font-bold tracking-[-0.05em]">
+    <p class="mt-8 mb-0 text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[0.95] font-bold tracking-[-0.05em] max-[641px]:mt-6">
       {content.role[0]}<br />{content.role[1]}
     </p>
   </header>
@@ -52,7 +52,7 @@ const cvUrl = withBase('nikita-veisman-cv.pdf');
     </div>
   </div>
 
-  <section class="py-7" aria-labelledby="core-skills-title">
+  <section class="py-7 max-[641px]:py-5" aria-labelledby="core-skills-title">
     <h2 class="mb-4 font-mono text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#aaa9a2]" id="core-skills-title">
       {content.coreSkillsLabel}
     </h2>
@@ -65,7 +65,7 @@ const cvUrl = withBase('nikita-veisman-cv.pdf');
 
   <nav class="border-t border-[#4b4b47]" aria-label={content.navigationLabel}>
     {content.navigation.map((item) => (
-      <a class="group grid grid-cols-[2.5rem_1fr_auto] items-center border-b border-[#4b4b47] py-3.5 no-underline" href={item.href}>
+      <a class="group grid grid-cols-[2.5rem_1fr_auto] items-center border-b border-[#4b4b47] py-3.5 no-underline max-[641px]:py-3" href={item.href}>
         <span class="font-mono text-[0.6rem] font-bold text-signal">{item.number}</span>
         <span class="text-lg font-bold tracking-[-0.03em] transition-transform group-hover:translate-x-1.5">{item.label}</span>
         <span class="text-lg text-[#77766f] group-hover:text-signal" aria-hidden="true">↘</span>
@@ -73,7 +73,7 @@ const cvUrl = withBase('nikita-veisman-cv.pdf');
     ))}
   </nav>
 
-  <div class="mt-auto flex items-center justify-between gap-4 border-y border-[#4b4b47] py-4" aria-label={`${content.socialLabel} / ${content.languageLabel}`}>
+  <div class="mt-auto flex items-center justify-between gap-4 border-y border-[#4b4b47] py-4 max-[641px]:py-3" aria-label={`${content.socialLabel} / ${content.languageLabel}`}>
     <div class="flex gap-2.5" role="group" aria-label={content.socialLabel}>
       {content.socialLinks.map((link) => <a
         class="group grid size-10 place-items-center rounded-full border border-[#6d6c67] transition-colors hover:border-signal hover:bg-signal hover:text-ink"

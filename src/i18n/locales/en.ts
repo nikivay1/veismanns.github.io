@@ -85,13 +85,7 @@ export const en = {
     },
     toolkit: {
       index: '03', title: 'Skills',
-      groups: [
-        { title: 'Core', skills: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'] },
-        { title: 'Frontend', skills: ['React', 'Vue', 'Redux', 'Vuex', 'Sass', 'Less'] },
-        { title: 'Product surfaces', skills: ['Web', 'Electron', 'Cordova', 'Cross-platform mobile'] },
-        { title: 'Backend & Web3', skills: ['Node.js', 'Python', 'REST API', 'Web3.js', 'Kafka'] },
-        { title: 'Delivery', skills: ['Playwright', 'Webpack', 'Babel', 'Docker', 'Git', 'Jira'] },
-      ],
+      groups: shared.toolkitGroups,
     },
     contact: {
       index: '04', title: 'Contact', heading: ['Let’s make', 'the complex', 'clear.'],

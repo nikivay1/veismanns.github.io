@@ -1,0 +1,21 @@
+---
+import { withBase } from '../utils/url';
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+const cvUrl = withBase('nikita-veisman-cv.pdf');
+---
+
+<div class="pointer-events-none fixed inset-x-0 bottom-0 z-50 hidden px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] max-[641px]:block">
+  <a
+    class="pointer-events-auto flex min-h-14 w-full items-center justify-center gap-3 rounded-full border border-ink bg-signal px-6 font-mono text-[0.72rem] font-bold tracking-[0.08em] text-ink uppercase shadow-[0_0.75rem_2rem_#17171440] no-underline transition-colors hover:bg-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal"
+    href={cvUrl}
+    download
+  >
+    {label}
+    <span class="text-base leading-none" aria-hidden="true">↓</span>
+  </a>
+</div>

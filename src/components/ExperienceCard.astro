@@ -10,14 +10,14 @@ const { job, technologiesLabel } = Astro.props;
 ---
 
 <article class="border-b border-line py-[clamp(2.5rem,5vw,4.5rem)]">
-  <div class="mb-6 flex items-start justify-between gap-5 max-sm:block">
+  <div class="mb-6 flex items-start justify-between gap-5 max-[641px]:block">
     <header>
       <h3 class="m-0 text-[clamp(2rem,4vw,4rem)] leading-[0.9] font-bold tracking-[-0.06em]">{job.company}</h3>
       <p class="mt-3 mb-0 font-mono text-[0.68rem] font-bold uppercase leading-[1.3] text-muted">{job.role}</p>
     </header>
-    <div class="shrink-0 text-right max-sm:mt-4 max-sm:flex max-sm:justify-between max-sm:text-left">
-      <p class="job-meta">{job.period}</p>
-      <p class="job-meta text-muted">{job.location}</p>
+      <div class="shrink-0 text-right max-[641px]:mt-4 max-[641px]:flex max-[641px]:items-start max-[641px]:justify-between max-[641px]:gap-4 max-[641px]:text-left">
+        <p class="job-meta shrink-0">{job.period}</p>
+        <p class="job-meta text-muted max-[641px]:max-w-[65%] max-[641px]:text-right">{job.location}</p>
     </div>
   </div>
 

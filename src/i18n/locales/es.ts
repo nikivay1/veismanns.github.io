@@ -38,13 +38,7 @@ export const es = {
     },
     toolkit: {
       index: '03', title: 'Habilidades',
-      groups: [
-        { title: 'Base', skills: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'] },
-        { title: 'Frontend', skills: ['React', 'Vue', 'Redux', 'Vuex', 'Sass', 'Less'] },
-        { title: 'Plataformas', skills: ['Web', 'Electron', 'Cordova', 'Mobile multiplataforma'] },
-        { title: 'Backend y Web3', skills: ['Node.js', 'Python', 'REST API', 'Web3.js', 'Kafka'] },
-        { title: 'Entrega', skills: ['Playwright', 'Webpack', 'Babel', 'Docker', 'Git', 'Jira'] },
-      ],
+      groups: shared.toolkitGroups,
     },
     contact: {
       index: '04', title: 'Contacto', heading: ['Hagamos', 'lo complejo', 'claro.'],

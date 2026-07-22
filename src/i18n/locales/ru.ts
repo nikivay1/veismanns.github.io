@@ -38,13 +38,7 @@ export const ru = {
     },
     toolkit: {
       index: '03', title: 'Навыки',
-      groups: [
-        { title: 'Основа', skills: ['TypeScript', 'JavaScript', 'HTML5', 'CSS3'] },
-        { title: 'Frontend', skills: ['React', 'Vue', 'Redux', 'Vuex', 'Sass', 'Less'] },
-        { title: 'Платформы', skills: ['Web', 'Electron', 'Cordova', 'Кроссплатформенная mobile-разработка'] },
-        { title: 'Backend и Web3', skills: ['Node.js', 'Python', 'REST API', 'Web3.js', 'Kafka'] },
-        { title: 'Поставка', skills: ['Playwright', 'Webpack', 'Babel', 'Docker', 'Git', 'Jira'] },
-      ],
+      groups: shared.toolkitGroups,
     },
     contact: {
       index: '04', title: 'Контакты', heading: ['Давайте сделаем', 'сложное', 'понятным.'],

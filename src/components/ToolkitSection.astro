@@ -12,12 +12,12 @@ const { content } = Astro.props;
 <section class="section-shell bg-ink text-paper" id="toolkit" aria-labelledby="toolkit-title">
   <SectionHeader index={content.index} title={content.title} id="toolkit-title" />
 
-  <div class="space-y-9">
+  <div class="space-y-9 max-[641px]:space-y-7">
     {content.groups.map((group) => (
       <section>
         <h3 class="m-0 font-sans text-[0.68rem] font-medium tracking-[0.06em] text-[#8f8e88] uppercase">{group.title}</h3>
         <ul class="mt-3 flex list-none flex-wrap gap-2 p-0">
-          {group.skills.map((skill) => <li class="max-w-full rounded-full bg-[#292925] px-3 py-2 font-mono text-[0.65rem] font-medium leading-none break-words text-[#d4d2ca]">{skill}</li>)}
+          {group.skills.map((skill) => <li class="max-w-full rounded-full bg-[#292925] px-3 py-2 font-mono text-[0.65rem] font-medium leading-none break-words text-[#d4d2ca] transition-colors duration-150 hover:bg-[#3a3934] hover:text-paper">{skill}</li>)}
         </ul>
       </section>
     ))}
