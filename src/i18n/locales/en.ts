@@ -107,5 +107,5 @@ export const en = {
       index: '04', title: 'Contact', heading: ['Let’s make', 'the complex', 'clear.'],
       links: [{ label: 'Email', ...shared.contacts.email }, { label: 'Telegram', ...shared.contacts.telegram, external: true }, { label: 'LinkedIn', ...shared.contacts.linkedin, external: true }, { label: 'GitHub', ...shared.contacts.github, external: true }],
     },
-    footer: { copyright: 'Nikita Veisman', note: 'Built for speed · No client-side framework', backToTop: 'Back to top ↑' },
+    footer: { copyright: 'Nikita Veisman', note: '', backToTop: 'Back to top ↑' },
   } satisfies PortfolioContent;

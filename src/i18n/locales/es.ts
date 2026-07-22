@@ -53,5 +53,5 @@ export const es = {
       index: '04', title: 'Contacto', heading: ['Hagamos', 'lo complejo', 'claro.'],
       links: [{ label: 'Email', ...shared.contacts.email }, { label: 'Telegram', ...shared.contacts.telegram, external: true }, { label: 'LinkedIn', ...shared.contacts.linkedin, external: true }, { label: 'GitHub', ...shared.contacts.github, external: true }],
     },
-    footer: { copyright: 'Nikita Veisman', note: 'Creado para la velocidad · Sin framework en el cliente', backToTop: 'Volver arriba ↑' },
+    footer: { copyright: 'Nikita Veisman', note: '', backToTop: 'Volver arriba ↑' },
   } satisfies PortfolioContent;

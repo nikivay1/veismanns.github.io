@@ -44,5 +44,5 @@ export const ru = {
       index: '04', title: 'Контакты', heading: ['Давайте сделаем', 'сложное', 'понятным.'],
       links: [{ label: 'Почта', ...shared.contacts.email }, { label: 'Telegram', ...shared.contacts.telegram, external: true }, { label: 'LinkedIn', ...shared.contacts.linkedin, external: true }, { label: 'GitHub', ...shared.contacts.github, external: true }],
     },
-    footer: { copyright: 'Никита Вейсман', note: 'Создан для скорости · Без клиентского фреймворка', backToTop: 'Наверх ↑' },
+    footer: { copyright: 'Никита Вейсман', note: '', backToTop: 'Наверх ↑' },
   } satisfies PortfolioContent;
