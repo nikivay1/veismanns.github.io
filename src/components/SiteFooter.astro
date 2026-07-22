@@ -1,0 +1,15 @@
+---
+import type { FooterContent } from '../i18n/content';
+
+interface Props {
+  content: FooterContent;
+}
+
+const { content } = Astro.props;
+---
+
+<footer class="flex justify-between gap-4 px-page py-8 font-mono text-[0.62rem] font-bold uppercase leading-[1.3] max-sm:flex-col">
+  <p>© {new Date().getFullYear()} {content.copyright}</p>
+  <p>{content.note}</p>
+  <a href="#top">{content.backToTop}</a>
+</footer>

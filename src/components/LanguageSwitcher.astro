@@ -1,0 +1,32 @@
+---
+import type { Locale, LocaleLink } from '../i18n/content';
+
+interface Props {
+  label: string;
+  currentLocale: Locale;
+  links: readonly LocaleLink[];
+}
+
+const { label, currentLocale, links } = Astro.props;
+---
+
+<div class="flex items-center justify-between border-b border-[#4b4b47] py-3.5">
+  <span class="font-mono text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#aaa9a2]">{label}</span>
+  <div class="flex items-center gap-1" aria-label={label}>
+    {links.map((link) => (
+      <a
+        class:list={[
+          'rounded-full px-2.5 py-1.5 font-mono text-[0.64rem] font-bold no-underline transition-colors',
+          link.code === currentLocale ? 'bg-signal text-ink' : 'text-[#aaa9a2] hover:text-paper',
+        ]}
+        href={link.href}
+        hreflang={link.code}
+        lang={link.code}
+        aria-label={link.ariaLabel}
+        aria-current={link.code === currentLocale ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</div>

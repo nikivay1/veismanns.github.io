@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale, LocaleLink, PortfolioContent } from '../i18n/content';
+
+interface Props {
+  lang: Locale;
+  meta: PortfolioContent['meta'];
+  alternateLinks: readonly LocaleLink[];
+}
+
+const { lang, meta, alternateLinks } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={meta.description} />
+    <meta name="theme-color" content="#f1efe9" />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.ogDescription} />
+    <meta property="og:type" content="website" />
+    {alternateLinks.map((link) => <link rel="alternate" hreflang={link.code} href={link.href} />)}
+    <link rel="alternate" hreflang="x-default" href={getRelativeLocaleUrl('en')} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{meta.title}</title>
+  </head>
+  <body class="m-0 overflow-x-hidden bg-paper text-ink antialiased selection:bg-signal selection:text-paper">
+    <a class="fixed -top-20 left-4 z-50 bg-ink px-4 py-3 text-sm font-bold text-white focus:top-4" href="#main">
+      {meta.skipToContent}
+    </a>
+    <slot />
+  </body>
+</html>

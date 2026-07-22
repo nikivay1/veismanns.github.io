@@ -1,0 +1,33 @@
+---
+import type { ToolkitContent } from '../i18n/content';
+
+interface Props {
+  content: ToolkitContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section class="section-shell bg-ink text-paper" id="toolkit" aria-labelledby="toolkit-title">
+  <header class="section-heading">
+    <p class="eyebrow">{content.eyebrow}</p>
+    <h2 class="section-title" id="toolkit-title">{content.heading[0]}<br />{content.heading[1]}</h2>
+  </header>
+
+  <div class="border-t border-[#595954]">
+    {content.groups.map(([title, items], index) => (
+      <div class="grid grid-cols-[2rem_minmax(7rem,.7fr)_1.5fr] items-baseline gap-4 border-b border-[#595954] py-6 max-sm:grid-cols-[2rem_1fr]">
+        <span class="font-mono text-[0.65rem] font-bold leading-none text-signal">0{index + 1}</span>
+        <h3 class="m-0 text-[clamp(1.2rem,2vw,2rem)] font-bold tracking-[-0.04em]">{title}</h3>
+        <p class="m-0 leading-[1.45] text-[#bbb9b1] max-sm:col-start-2">{items}</p>
+      </div>
+    ))}
+  </div>
+
+  <aside class="mt-[clamp(4rem,9vw,8rem)] max-w-4xl">
+    <p class="font-mono text-[0.68rem] font-bold uppercase leading-none text-signal">{content.principleLabel}</p>
+    <blockquote class="mt-6 mb-0 text-[clamp(2.4rem,5vw,5.5rem)] leading-[0.95] tracking-[-0.06em]">
+      {content.principle}
+    </blockquote>
+  </aside>
+</section>
