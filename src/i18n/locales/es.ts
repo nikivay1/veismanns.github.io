@@ -34,7 +34,7 @@ export const es = {
         'Experiencia en la modernización de código legacy, el liderazgo de migraciones a TypeScript y el diseño de soluciones frontend escalables en estrecha colaboración con equipos de backend y producto.',
       ],
       impactAriaLabel: 'Resultados destacados', impact: [['½', 'tiempo de carga'], ['4×', 'onboarding más rápido'], ['30%', 'más fiabilidad']],
-      facts: [{ label: 'Idiomas', lines: ['Ruso · Nativo', 'Inglés · B1', 'Español - A1'] }, { label: 'Formación', lines: ['Tecnologías de la Información y Matemáticas Superiores', 'Universidad Estatal de Ivánovo'] }, { label: 'Ubicación', lines: ['Valencia, España'] }],
+      facts: [{ label: 'Idiomas', lines: ['Ruso · Nativo', 'Inglés · B1', 'Español · A2'] }, { label: 'Formación', lines: ['Tecnologías de la Información y Matemáticas Superiores', 'Universidad Estatal de Ivánovo'] }, { label: 'Ubicación', lines: ['Valencia, España'] }],
     },
     experience: {
       index: '02', title: 'Experiencia', technologiesLabel: 'Tecnologías',
