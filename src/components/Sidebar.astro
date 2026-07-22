@@ -1,6 +1,7 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import type { Locale, LocaleLink, SidebarContent } from '../i18n/content';
+import { withBase } from '../utils/url';
 
 interface Props {
   content: SidebarContent;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const { content, locale, localeLinks } = Astro.props;
+const cvUrl = withBase('nikita-veisman-cv.pdf');
 ---
 
 <aside
@@ -20,12 +22,10 @@ const { content, locale, localeLinks } = Astro.props;
     <a class="text-xl font-black tracking-[-0.06em] no-underline" href="#top" aria-label={content.backToTopLabel}>
       NV<span class="text-signal">°</span>
     </a>
-    <a class="nav-link text-paper" href="/nikita-veisman-cv.pdf" download>
+    <a class="nav-link text-paper" href={cvUrl} download>
       {content.downloadLabel} <span aria-hidden="true">↓</span>
     </a>
   </div>
-
-  <LanguageSwitcher label={content.languageLabel} currentLocale={locale} links={localeLinks} />
 
   <header class="py-[clamp(3.5rem,8vh,7rem)]">
     <div class="mb-5 flex items-center gap-2.5 font-mono text-[0.66rem] font-bold uppercase tracking-[0.1em] text-[#bbb9b1]">
@@ -62,28 +62,7 @@ const { content, locale, localeLinks } = Astro.props;
     </ul>
   </section>
 
-  <section class="flex items-center justify-between border-t border-[#4b4b47] py-5" aria-labelledby="social-links-title">
-    <h2 class="font-mono text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#aaa9a2]" id="social-links-title">
-      {content.socialLabel}
-    </h2>
-    <div class="flex gap-2.5">
-      {content.socialLinks.map((link) => <a
-        class="group grid size-10 place-items-center rounded-full border border-[#6d6c67] transition-colors hover:border-signal hover:bg-signal hover:text-ink"
-        href={link.href}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={link.ariaLabel}
-      >
-        {link.network === 'telegram' ? <svg class="size-[1.1rem]" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-          <path d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 12.8l-4.8-1.5c-1.1-.3-1.1-1.1.2-1.6L20.4 2.5c.9-.3 1.6.2 1.4.7Z" />
-        </svg> : <svg class="size-[1.05rem]" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-          <path d="M5.4 7.8H1.8V22h3.6V7.8ZM3.6 2A2.1 2.1 0 1 0 3.6 6.2 2.1 2.1 0 0 0 3.6 2ZM22.2 13.9c0-4.3-2.3-6.3-5.4-6.3a4.7 4.7 0 0 0-4.2 2.3h-.1V7.8H9V22h3.6v-7c0-1.9.4-3.7 2.7-3.7 2.3 0 2.3 2.1 2.3 3.8V22h3.6l1-8.1Z" />
-        </svg>}
-      </a>)}
-    </div>
-  </section>
-
-  <nav class="mt-auto border-t border-[#4b4b47]" aria-label={content.navigationLabel}>
+  <nav class="border-t border-[#4b4b47]" aria-label={content.navigationLabel}>
     {content.navigation.map((item) => (
       <a class="group grid grid-cols-[2.5rem_1fr_auto] items-center border-b border-[#4b4b47] py-3.5 no-underline" href={item.href}>
         <span class="font-mono text-[0.6rem] font-bold text-signal">{item.number}</span>
@@ -92,5 +71,30 @@ const { content, locale, localeLinks } = Astro.props;
       </a>
     ))}
   </nav>
+
+  <div class="mt-auto border-t border-[#4b4b47]" aria-label={`${content.languageLabel} / ${content.socialLabel}`}>
+    <LanguageSwitcher label={content.languageLabel} currentLocale={locale} links={localeLinks} />
+
+    <section class="flex items-center justify-between border-b border-[#4b4b47] py-4" aria-labelledby="social-links-title">
+      <h2 class="font-mono text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#aaa9a2]" id="social-links-title">
+        {content.socialLabel}
+      </h2>
+      <div class="flex gap-2.5">
+        {content.socialLinks.map((link) => <a
+          class="group grid size-10 place-items-center rounded-full border border-[#6d6c67] transition-colors hover:border-signal hover:bg-signal hover:text-ink"
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={link.ariaLabel}
+        >
+          {link.network === 'telegram' ? <svg class="size-[1.1rem]" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M21.8 3.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 12.8l-4.8-1.5c-1.1-.3-1.1-1.1.2-1.6L20.4 2.5c.9-.3 1.6.2 1.4.7Z" />
+          </svg> : <svg class="size-[1.05rem]" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M5.4 7.8H1.8V22h3.6V7.8ZM3.6 2A2.1 2.1 0 1 0 3.6 6.2 2.1 2.1 0 0 0 3.6 2ZM22.2 13.9c0-4.3-2.3-6.3-5.4-6.3a4.7 4.7 0 0 0-4.2 2.3h-.1V7.8H9V22h3.6v-7c0-1.9.4-3.7 2.7-3.7 2.3 0 2.3 2.1 2.3 3.8V22h3.6l1-8.1Z" />
+          </svg>}
+        </a>)}
+      </div>
+    </section>
+  </div>
 
 </aside>
