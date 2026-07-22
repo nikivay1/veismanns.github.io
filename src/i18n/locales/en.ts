@@ -12,7 +12,7 @@ export const en = {
       ariaLabel: 'Profile and navigation',
       backToTopLabel: 'Back to top',
       downloadLabel: 'Download CV',
-      availability: 'Available for selected projects',
+      availability: 'Open to work',
       name: ['Nikita', 'Veisman'],
       role: ['Senior Frontend', 'Developer'],
       locationLabel: 'Based in',
@@ -43,9 +43,9 @@ export const en = {
       impactAriaLabel: 'Selected impact',
       impact: [['½', 'load time'], ['4×', 'onboarding speed'], ['30%', 'reliability gain']],
       facts: [
-        { label: 'Languages', lines: ['Russian · Native', 'English · B1'] },
+        { label: 'Languages', lines: ['Russian · Native', 'English · B1', 'Spanish - A1'] },
         { label: 'Education', lines: ['Information Technology & Higher Mathematics', 'Ivanovo State University'] },
-        { label: 'Base', lines: ['Valencia, Spain', 'Also available from Tbilisi, Georgia'] },
+        { label: 'Base', lines: ['Valencia, Spain'] },
       ],
     },
     experience: {

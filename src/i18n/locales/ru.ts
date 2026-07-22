@@ -9,7 +9,7 @@ export const ru = {
       skipToContent: 'Перейти к содержанию',
     },
     sidebar: {
-      ariaLabel: 'Профиль и навигация', backToTopLabel: 'Наверх', downloadLabel: 'Скачать CV', availability: 'Открыт для интересных проектов',
+      ariaLabel: 'Профиль и навигация', backToTopLabel: 'Наверх', downloadLabel: 'Скачать CV', availability: 'Открыт к предложениям',
       name: ['Никита', 'Вейсман'], role: ['Senior Frontend', 'Developer'], locationLabel: 'Живу в', location: 'Валенсия, Испания', timeLabel: 'Рабочее время', time: 'CET / CEST',
       coreSkillsLabel: 'Основные навыки', coreSkills: shared.coreSkills, socialLabel: 'Соцсети',
       socialLinks: shared.socialLinks.map((link) => ({ ...link, ariaLabel: `Никита Вейсман в ${link.network === 'telegram' ? 'Telegram' : link.network === 'linkedin' ? 'LinkedIn' : 'GitHub'}` })),
@@ -25,7 +25,7 @@ export const ru = {
         'Имею опыт модернизации legacy-кода, руководства миграциями на TypeScript и проектирования масштабируемых frontend-решений в тесном сотрудничестве с backend- и product-командами.',
       ],
       impactAriaLabel: 'Ключевые результаты', impact: [['½', 'время загрузки'], ['4×', 'быстрее onboarding'], ['30%', 'рост надёжности']],
-      facts: [{ label: 'Языки', lines: ['Русский · Родной', 'Английский · B1'] }, { label: 'Образование', lines: ['Информационные технологии и высшая математика', 'Ивановский государственный университет'] }, { label: 'Локация', lines: ['Валенсия, Испания', 'Также доступен из Тбилиси, Грузия'] }],
+      facts: [{ label: 'Языки', lines: ['Русский · Родной', 'Английский · B1', 'Испанский - A1'] }, { label: 'Образование', lines: ['Информационные технологии и высшая математика', 'Ивановский государственный университет'] }, { label: 'Локация', lines: ['Валенсия, Испания'] }],
     },
     experience: {
       index: '02', title: 'Опыт', technologiesLabel: 'Технологии',
